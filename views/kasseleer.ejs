@@ -1,0 +1,68 @@
+<%- include("partials/header"); -%>
+
+
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <form action="/artikelhinzufuegen" method="post">
+          <div class="mb-3">
+            <label for="artikelnummer" class="form-label">Artikelnummer</label>
+            <input type="number" min="10000000" max="99999999" autofocus name="neuerArtikel" class="form-control" id="artikelnummer"
+              required>
+
+          </div>
+          <button type="submit" class="btn btn-primary">Hinzufügen</button>
+        </form>
+        <form action="/kundenabschluss" method="post">
+          <input type="hidden" name="bonNr"  value="<%=bonNummer%>" />
+          <button type="submit" class="btn btn-primary">Kunde abschließen</button>
+        </form>
+        <form action="/neuerBon" method="post">
+          <button type="submit" class="btn btn-primary">Neuer Bon</button>
+          <span class="text-danger"><%=errorcode%></span>
+        </form>
+      </div>
+      <div class="col">
+        <h1>Bon: <%=bonNummer%>   
+          <script>
+            zahl = <%=summe %>
+            document.write(Number(zahl/100).toFixed(2).replace('.', ',') + "€");
+          </script>
+
+        </h1>
+        <ul class="list-group list-group-flush">
+          <script>let zahl
+            let zahlstring
+          </script>
+          <% artikels.forEach(function(artikel){%>
+            <form action="/delete" method="post">
+
+              <li class="list-group-item">
+                <%=artikel.nummer%> - 
+
+                  <script>
+                    zahl = <%=artikel.nummer %>
+                      zahlstring = zahl.toString();
+
+                    document.write(Number(zahlstring.slice(4)/100).toFixed(2).replace('.', ',') + "€");
+                  </script>
+            
+              </li>
+
+            </form>
+            <% })%>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <%- include("partials/footer"); -%>

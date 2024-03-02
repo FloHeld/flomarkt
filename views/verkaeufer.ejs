@@ -1,0 +1,200 @@
+<%- include("partials/header"); -%>
+
+<div class=" container-fluid mt-3">
+  <div class="row">
+    <div class=" col-lg-4 col-sm-12">
+      <div class="d-lg-none">
+      <form action="/verkaeuferhinzufuegen" method="post">
+        <div class="form-row">
+          <div class="col">
+            <h2>Neuer Verkäufer</h2>
+            <label for="inputAddress">Vorname</label>
+            <input type="text" class="form-control" name="vorname" required />
+          </div>
+          <div class="col">
+            <label for="inputAddress">Nachname</label>
+            <input type="text" class="form-control" name="nachname" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress4">E-Mail</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress4"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputAddress5"
+            >Verkäufernummer
+            <span class="text-danger"><%=errorcode%></span></label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="inputAddress5"
+            min="4000"
+            max="5999"
+            value="<%=nextNummer%>"
+            name="verknummer"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-dark mt-2 mb-1">Hinzufügen</button>
+      </form>
+      <form action="/namensliste" method="get">
+        <button type="submit" class="btn btn-dark my-1">Namensliste als Excel-Export</button>
+      </form>
+    </div>
+    </div>
+    <div class="col-sm-6 col-lg-4">
+      <h2>Aktuelle Verkäufer</h2>
+      <ul class="list-group list-group-flush">
+        <% let counter = 0; verkaeufer.forEach(function(verkae){%>
+        <form action="/verkaeuferStatusToggle" method="post">
+          <li class="list-group-item d-flex w-100 justify-content-between" id="verk_<%= counter%>">
+            <%=verkae.vNummer%> - <%=verkae.vorname%> <%=verkae.nachname%>
+            <span>
+              <input
+                type="hidden"
+                name="verkNo"
+                id="firstFormArt"
+                value="<%=verkae.vNummer%>"
+              />
+              <input
+              type="hidden"
+              name="reihe"
+              id="reihenID"
+              value="verk_<%= counter%>"
+            />
+              <button type="submit" class="btn btn-warning">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-dash-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+                  />
+                  <path
+                    d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"
+                  />
+                </svg>
+              </button>
+            </span>
+          </li>
+        </form>
+        <% counter++; })%>
+
+      </ul>
+    </div>
+
+    <div class="col-sm-6 col-lg-4">
+        <h2>Verkäuferdatenbank</h2>
+        <ul class="list-group list-group-flush">
+          <% verkaeuferPassiv.forEach(function(verkae){%>
+          <form method="post">
+            <li class="list-group-item d-flex w-100 justify-content-between">
+                <span> <%=verkae.vNummer%> - <%=verkae.vorname%> <%=verkae.nachname%></span>
+              <span>
+                <input
+                  type="hidden"
+                  name="verkNo"
+                  id="firstFormArt"
+                  value="<%=verkae.vNummer%>"
+                />
+                <button type="submit" class="btn btn-success" formaction="/verkaeuferStatusToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                      </svg>
+                </button>
+              
+                <input
+                  type="hidden"
+                  name="verkNo"
+                  id="firstFormArt"
+                  value="<%=verkae.vNummer%>"
+                />
+                <button type="submit" class="btn btn-danger" formaction="/verkaeuferloeschen">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"></path>
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
+                    </svg>
+                </button>
+              </span>
+            </li>
+          </form>
+  
+          <% })%>
+        </ul>
+      </div>
+      <div class="row ">
+        <div class="col-4 col-lg-4 fixed-top verksticky d-none d-lg-block">
+          <form action="/verkaeuferhinzufuegen" method="post">
+            <div class="form-row">
+              <div class="col">
+                <h2>Neuer Verkäufer</h2>
+                <label for="inputAddress">Vorname</label>
+                <input type="text" class="form-control" name="vorname" required />
+              </div>
+              <div class="col">
+                <label for="inputAddress">Nachname</label>
+                <input type="text" class="form-control" name="nachname" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress4">E-Mail</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress4"
+                name="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputAddress5"
+                >Verkäufernummer
+                <span class="text-danger"><%=errorcode%></span></label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="inputAddress5"
+                min="4000"
+                max="5999"
+                value="<%=nextNummer%>"
+                name="verknummer"
+              />
+            </div>
+    
+            <button type="submit" class="btn btn-dark mt-2 mb-1">Hinzufügen</button>
+          </form>
+          <form action="/namensliste" method="get">
+            <button type="submit" class="btn btn-dark my-1">Namensliste als Excel-Export</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<script>
+
+  
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    window.onload = function (event) {
+  let topoelem = document.getElementById("<%=anchor%>").offsetTop; //Getting Y of target element
+
+  window.scrollTo(0, topoelem-124);
+  }
+  })
+  </script>
+
+<%- include("partials/footer"); -%>
+
+
+

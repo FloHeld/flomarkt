@@ -1,0 +1,93 @@
+<%- include("partials/header"); -%>
+
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-4 col-sm-6 col-lg-4">
+      <h2>Bonliste</h2>
+      <form action="/bonwaehlen" method="post">
+        <div>
+          <select
+            class="custom-select w-100"
+            size="15"
+            name="bonNummer"
+            id="bonList"
+          >
+            <% bons.forEach(function(bon){%>
+            <option value="<%=bon.vorgang%>">
+              Bon <%=bon.vorgang%> - <%=bon.summe/100%> €
+            </option>
+            <% })%>
+          </select>
+        </div>
+        <button
+          type="submit"
+          name="bonauswahl"
+          class="btn btn-dark"
+          value="choose"
+        >
+          Auswählen
+        </button>
+      </form>
+      <form action="/archivfiltern" method="post">
+        <div>
+          <input
+            type="number"
+            class="form-control mt-3"
+            name="artikelnummer"
+            placeholder="Artikelnummer eingeben"
+          />
+        </div>
+        <button type="submit" class="btn btn-dark" value="choose">
+          Filtern
+        </button>
+      </form>
+      <div>Filter: <%=filter%></div>
+      <form action="/deletefilter" class="my-3" method="post" >
+      
+        <button type="submit" class="btn btn-dark" value="choose">
+          Filter löschen
+        </button>
+      </form>
+    </div>
+    <div class="col-4 col-sm-6 col-lg-4">
+      <h2>Bon <%= bon.vorgang%></h2>
+      <form action="/deleteArtikel" method="post">
+        <div>
+          <select class="custom-select w-100" size="15" name="welcherArtikel">
+            <%let counter =0; bon.artikel.forEach(function(artikel){%>
+
+            <option value='{"id":"<%=artikel._id%>","artikelNo":"<%= artikel.nummer%>"}'>
+              Verkäufer: <%=String(artikel.nummer).slice(0,4)%> -
+              <%=parseInt(String(artikel.nummer).slice(4))/100%> €
+            </option>
+
+            <%counter++ })%>
+          </select>
+        </div>
+        <input type="hidden" name="bonNo" value="<%= bon.vorgang%>" />
+        <input type="hidden" name="summe" value="<%= bon.summe%>" />
+        <button
+          type="submit"
+          name="bonauswahl"
+          class="btn btn-dark"
+          value="choose"
+        >
+          Artikel löschen
+        </button>
+      </form>
+      
+    </div>
+
+    <div class="col-4 col-sm-6 col-lg-4"></div>
+  </div>
+
+  <% - include("partials/footer"); -%>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.onload = function (event) {
+        document.getElementById("bonList").selectedIndex = 0;
+      };
+    });
+  </script>
+</div>

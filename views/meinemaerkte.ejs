@@ -1,0 +1,64 @@
+<%- include("partials/header"); -%>
+
+<link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+<div class="container mt-3">
+  <h4><div>Flohmarkt wechseln:</div></h4>
+  <form action="/setFlohmarkt" method="post">
+    <div class="form-group my-2">
+      <select
+        class="form-inline form-control-lg"
+        id="exampleFormControlSelect1"
+        name="flohmarktNummer"
+      >
+
+
+      <%flohmaerkte.forEach(function(flohmarkt){%>
+        <option value=<%=flohmarkt.flohmarktId%>> <%=flohmarkt.datum.toLocaleDateString()%> - <%=flohmarkt.flohmarktBezeichnung%></option>
+
+        <%})%>
+      
+      </select>
+    </div>
+    <button type="submit" name="fm" class="btn btn-dark" value="choose">
+      Auswählen
+    </button>
+<!--     <button type="submit" name="fm" class="btn btn-dark" value="edit">
+      Bearbeiten
+    </button> -->
+  </form>
+
+  <div class="btn-group" role="group">
+    <form action="/flohmarktAuswaehlen" method="post" class="m-3"></form>
+    <form action="/flohmarktBearbeiten" method="post"></form>
+  </div>
+
+  <div class="col-12 col-lg-4">
+    <form action="/neuerflohmarkt" method="post">
+      <div class="form-row">
+        <div class="col">
+          <h4><div class="my-4">Neuen Flohmarkt anlegen</div></h4>
+          <label for="inputAddress">Bezeichnung</label>
+          <input type="text" class="form-control" name="bezeichnung" required />
+        </div>
+        <div class="col">
+          <label for="inputAddress">Datum</label>
+          <div class="input-group date" id="datepicker">
+            <input type="text" class="form-control" name="datum" required/>
+            <span class="input-group-append">
+              <span class="input-group-text bg-white">
+                <i class="fa fa-calendar"></i>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-dark mt-2 mb-1">Hinzufügen</button>
+    </form>
+
+  
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>

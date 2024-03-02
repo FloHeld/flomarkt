@@ -1,0 +1,90 @@
+<%- include("partials/header"); -%>
+
+
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+
+    
+<div class="container">
+
+
+  
+  <div class="btn-group" role="group">
+    <form action="/auswerten" method="post">
+    <button type="submit" class="btn btn-dark">Gesamtauswertung aktualisieren</button>
+    </form>
+    <form action="/auswertungEinzeln" method="post">
+    <button type="submit" class="btn btn-dark mt-3">Auswertung pro Verkäufer downloaden</button>
+    </form>
+  </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" >Nummer</th>
+      <th scope="col">Nachnamen</th>
+      <th scope="col">Umsatz</th>
+      <th scope="col">Auszahlung Verkäufer</th>
+      <th scope="col" >Auszahlung Helfer</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <script>
+    let counter = 0;
+    var summe;
+    </script>
+    <% auswertungen.forEach(function(auswertung){%>
+      <script>
+        counter++;
+        
+        
+      </script>
+    <tr class="verk<%= Math.round(auswertung.vNummer/1000) %>">
+      <th scope="row" ><%=auswertung.vNummer%></th>
+      <td><%=auswertung.nachname%></td>
+
+      <td ><%= (auswertung.summe/100).toFixed(2) %> €</td>
+      </td>
+      <td><%= (auswertung.summe/117.65).toFixed(2) %> €</td>
+    </td>
+    <td class="grau"><%= (auswertung.summe/105.26).toFixed(2) %> €</td>
+  </td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+
+</div>
+
+<%- include("partials/footer"); -%>
+
+<!--
+
+<ul class="list-group list-group-flush">
+  <script>let zahl
+    let zahlstring;
+    let counter = 0;
+  </script>
+
+    <script>
+      counter++;
+    </script>
+    <form action="/delete" method="post">
+
+      <li class="list-group-item">
+        <strong><script>document.write(counter);</script></strong> - 
+        
+
+          <script>
+            zahl =
+              zahlstring = zahl.toString();
+
+            document.write(Number(zahlstring.slice(4)/100).toFixed(2).replace('.', ',') + "€");
+          </script>
+    
+      </li>
+
+    </form>
+   
+</ul>
+-->

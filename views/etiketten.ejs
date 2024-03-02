@@ -1,0 +1,724 @@
+<%- include("partials/header"); -%>
+
+
+<form action="/etikettenErstellen" method="post">
+<div class="container pb-5">
+  <div class="container mt-3"> 
+    <div class="row">
+      <div class="col text-right">
+        <button type="submit" class="btn btn-dark">
+          Etiketten erstellen
+        </button>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="inputAddress5">Verkäufernummer </label>
+          <input
+            type="number"
+            class="form-control"
+            id="inputAddress5"
+            min="4000"
+            max="9999"
+            name="verknummer"
+           required
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">0,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis050"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">1,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis100"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">1,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis150"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">2,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis200"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">2,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis250"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">3,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis300"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">3,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis350"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">4,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis400"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">4,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis450"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">5,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis500"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">5,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis550"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">6,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis600"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">6,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis650"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">7,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis700"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">7,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis750"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">8,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis800"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">8,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis850"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">9,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis900"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">9,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis950"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">10,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1000"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">10,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1050"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">11,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1100"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">11,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1150"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">12,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1200"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">12,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1250"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">13,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1300"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">13,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1350"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">14,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1400"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">14,50€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1450"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">15,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1500"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">16,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1600"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">17,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1700"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">18,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1800"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">19,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis1900"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">20,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2000"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">21,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2100"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">22,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2200"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">23,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2300"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">24,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2400"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">25,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2500"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">26,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2600"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">27,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2700"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">28,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2800"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">29,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis2900"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">30,00€</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preis3000"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-2 text-center">Anderer Wert</div>
+        <div class="col-md-3 col-8 ">
+          <input
+            class="etikettenInput"
+            type="number"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+            name="preisleer"
+          />
+        </div>
+        <div class="col-md-3 col-2">Zeilen</div>
+      </div>
+    </div>
+  
+</div>
+</form>
+<%- include("partials/footer"); -%>

@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  app:
+    container_name: flomarkt
+    restart: always
+    build: .
+    ports:
+      - '80:7003'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'

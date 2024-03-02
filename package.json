@@ -1,0 +1,36 @@
+{
+  "name": "flohmarkt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "blob-stream": "^0.1.3",
+    "body-parser": "^1.19.0",
+    "bootstrap-input-spinner": "^3.1.7",
+    "brfs": "^2.0.2",
+    "browserify": "^17.0.0",
+    "cookie-parser": "^1.4.6",
+    "core-js": "^3.19.1",
+    "dotenv": "^11.0.0",
+    "ejs": "^3.1.6",
+    "excel4node": "^1.7.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "get-stream": "^6.0.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.13.11",
+    "mongoose-encryption": "^2.1.2",
+    "nodemon": "^2.0.15",
+    "npm": "^8.1.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "pdfkit": "^0.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

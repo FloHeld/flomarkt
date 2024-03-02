@@ -1,0 +1,12 @@
+
+Docker neu bauen(evtl vorher images löschen)
+
+docker-compose up --build
+
+
+docker image ls
+
+
+docker tag flomarkt_app floheld/flomarkt
+
+docker push floheld/flomarkt
